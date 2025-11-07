@@ -1,0 +1,210 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+body {
+  font-family: 'Cairo', sans-serif;
+  background: linear-gradient(135deg, #1a3c34, #4a7043);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Header */
+header {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+header h1 i {
+  margin-left: 0.5rem;
+  color: #a8e6cf;
+}
+
+header nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover,
+header nav a.active {
+  color: #a8e6cf;
+}
+
+/* Bubbles Animation */
+.bubbles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bubbles .bubble {
+  position: absolute;
+  bottom: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1) 50%);
+  opacity: 0.5;
+  will-change: transform;
+  animation: floatUp 15s infinite linear;
+}
+
+.bubbles .bubble:nth-child(1) { width: 80px; height: 80px; right: 10%; animation-duration: 18s; }
+.bubbles .bubble:nth-child(2) { width: 60px; height: 60px; right: 30%; animation-duration: 12s; animation-delay: 2s; }
+.bubbles .bubble:nth-child(3) { width: 100px; height: 100px; right: 50%; animation-duration: 20s; animation-delay: 1s; }
+.bubbles .bubble:nth-child(4) { width: 50px; height: 50px; right: 70%; animation-duration: 14s; animation-delay: 3s; }
+.bubbles .bubble:nth-child(5) { width: 70px; height: 70px; right: 90%; animation-duration: 16s; animation-delay: 4s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-70vh) translateX(-20px); }
+  100% { transform: translateY(-140vh) translateX(20px); }
+}
+
+/* Hero Section */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.hero-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(45deg, #a8e6cf, #dcedc1);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1rem;
+}
+
+.hero-title i {
+  margin-left: 0.5rem;
+  color: #a8e6cf;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  max-width: 600px;
+  margin-bottom: 2rem;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  background: #a8e6cf;
+  color: #1a3c34;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 25px;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.button:hover {
+  background: #dcedc1;
+  transform: translateY(-3px);
+}
+
+.button i {
+  font-size: 1.2rem;
+}
+
+/* Footer */
+footer {
+  padding: 2rem;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+}
+
+.social-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-links a {
+  color: #a8e6cf;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #dcedc1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  header nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+}

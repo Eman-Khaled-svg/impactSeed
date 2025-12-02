@@ -1,0 +1,214 @@
+<?php
+    $base_url = "/ImpactSeed/";
+?>
+
+<!-- Header -->
+<!-- <link rel="stylesheet" href="../css/nav.css"> -->
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+:root {
+    --dark-green: #1a3c34;
+    --main-green: #4a7043;
+    --mint: #a8e6cf;
+    --light-mint: #dcedc1;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, var(--dark-green), var(--main-green));
+    color: #fff;
+    min-height: 100vh;
+    direction: rtl;
+    overflow-x: hidden;
+}
+
+/* الناف الأسطوري */
+header#navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(20px);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 9999;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.uslsList li {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--mint);
+    text-shadow: 0 0 20px rgba(168, 230, 207, 0.6);
+    letter-spacing: 2px;
+    list-style: none;
+    margin-bottom: 10px;
+}
+
+.pagesList {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    transition: all 0.5s ease;
+}
+
+.pagesList a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 12px 25px;
+    border-radius: 50px;
+    background: rgba(168, 230, 207, 0.15);
+    backdrop-filter: blur(10px);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pagesList a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(168, 230, 207, 0.4), transparent);
+    transition: 0.7s;
+}
+
+.pagesList a:hover::before {
+    left: 100%;
+}
+
+.pagesList a:hover {
+    background: var(--mint);
+    color: var(--dark-green);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(168, 230, 207, 0.4);
+}
+
+/* زر الهامبرجر */
+#navBtn {
+    display: none;
+    background: rgba(168, 230, 207, 0.3);
+    border: 2px solid var(--mint);
+    color: var(--mint);
+    font-size: 1.8rem;
+    padding: 12px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+#navBtn:hover {
+    background: var(--mint);
+    color: var(--dark-green);
+    transform: rotate(90deg);
+}
+@media (max-width: 992px) {
+    .pagesList {
+        position: fixed;
+        top:  30px;
+       
+        width: 100%;
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        margin: 10px;
+        gap: 1rem;
+        transform: translateY(-150%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .pagesList.openList {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .pagesList a {
+      display: flex;
+        width: 100%;
+        text-align: center;
+        font-size: 1.3rem;
+        padding: 18px;
+        margin-bottom: 20px;
+        border-radius: 50px;
+        border: 2px solid transparent;
+    }
+
+    .pagesList a:hover {
+        border: 2px solid var(--mint);
+    }
+
+    #navBtn {
+        display: block !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .uslsList li {
+        font-size: 1.6rem;
+    }
+
+    #navBtn {
+        font-size: 1.5rem;
+        padding: 10px 12px;
+    }
+}
+
+</style>
+<header id="navbar">
+        <nav>
+            <button id="navBtn"><i class="fa-solid fa-bars"></i></button>
+            
+            <ul class="uslsList">
+                <li>ImpactSeed</li>
+            </ul>
+            
+            <ul class="pagesList">
+                <li><a href="<?php echo $base_url; ?>/component/view.php">Home</a></li>
+                <li><a href="<?php echo $base_url; ?>/component/about.php">About Us</a></li>
+                <li><a href="<?php echo $base_url; ?>/component/plantSeed.php">Plant Ur Seed</a></li>
+                <li><a href="<?php echo $base_url; ?>/component/community.php">community</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+    <script>
+      const navBtn = document.getElementById('navBtn');
+        const pagesList = document.querySelector('.pagesList');
+
+        navBtn.addEventListener('click', function() {
+            pagesList.classList.toggle('openList');
+            
+            // تغيير الأيقونة
+            this.innerHTML = pagesList.classList.contains('openList') 
+                ? '<i class="fa-solid fa-xmark"></i>' 
+                : '<i class="fa-solid fa-bars"></i>';
+        });
+
+        // إغلاق الناف لما تضغط على لينك
+        document.querySelectorAll('.pagesList a').forEach(link => {
+            link.addEventListener('click', () => {
+                pagesList.classList.remove('openList');
+                navBtn.innerHTML = '<i class="fa-solid fa-bars"></i>';
+            });
+        });
+    </script>

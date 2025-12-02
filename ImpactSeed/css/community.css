@@ -1,0 +1,142 @@
+/* نفس الـ CSS اللي بعتيه بالظبط + تحسينات للمجتمع */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap');
+
+    
+/* Header */
+header {
+   font-family: 'Cairo', sans-serif;
+  background: linear-gradient(135deg, #1a3c34, #4a7043);
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  direction: rtl;
+  text-align: right;
+}
+
+/* Header */
+header {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+header h1 i {
+  margin-left: 0.5rem;
+  color: #a8e6cf;
+}
+
+header nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+header nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+header nav a:hover,
+header nav a.active {
+  color: #a8e6cf;
+}
+
+/* Bubbles Animation */
+.bubbles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bubbles .bubble {
+  position: absolute;
+  bottom: -100px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1) 50%);
+  opacity: 0.5;
+  will-change: transform;
+  animation: floatUp 15s infinite linear;
+}
+
+.bubbles .bubble:nth-child(1) { width: 80px; height: 80px; right: 10%; animation-duration: 18s; }
+.bubbles .bubble:nth-child(2) { width: 60px; height: 60px; right: 30%; animation-duration: 12s; animation-delay: 2s; }
+.bubbles .bubble:nth-child(3) { width: 100px; height: 100px; right: 50%; animation-duration: 20s; animation-delay: 1s; }
+.bubbles .bubble:nth-child(4) { width: 50px; height: 50px; right: 70%; animation-duration: 14s; animation-delay: 3s; }
+.bubbles .bubble:nth-child(5) { width: 70px; height: 70px; right: 90%; animation-duration: 16s; animation-delay: 4s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(0) translateX(0); }
+  50% { transform: translateY(-70vh) translateX(-20px); }
+  100% { transform: translateY(-140vh) translateX(20px); }
+}
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #a8e6cf;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        .seed {
+            background: rgba(168,230,207,0.2);
+            padding: 20px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+        .comment {
+            background: rgba(255,255,255,0.1);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+        .comment strong { color: #a8e6cf; }
+        form {
+            margin-top: 30px;
+            background: rgba(168,230,207,0.1);
+            padding: 20px;
+            border-radius: 15px;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 10px;
+            font-family: 'Cairo', sans-serif;
+        }
+        button {
+            background: #a8e6cf;
+            color: #1a3c34;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover { background: #dcedc1; }
+        .back {
+            display: inline-block;
+            margin: 20px 0;
+            padding: 10px 20px;
+            background: #a8e6cf;
+            color: #1a3c34;
+            text-decoration: none;
+            border-radius: 50px;
+        }

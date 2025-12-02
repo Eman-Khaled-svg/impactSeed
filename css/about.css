@@ -1,0 +1,174 @@
+/* إعدادات عامة */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Cairo", sans-serif;
+  background: #f5f7f6;
+  color: #222;
+  line-height: 1.8;
+  direction: rtl;
+  text-align: right;
+}
+
+/* البطل (Hero Section) */
+.hero-section {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.6)), url('../upload/green-bg.jpg') center/cover no-repeat;
+  color: #fff;
+  padding: 120px 20px;
+  text-align: center;
+}
+
+.hero-section h2 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+}
+
+.hero-section p {
+  font-size: 1.2rem;
+  margin-bottom: 25px;
+}
+
+.scroll-btn {
+  background: #28a745;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.scroll-btn:hover {
+  background: #218838;
+}
+
+/* قسم المطورة */
+.about-developer {
+  background: #fff;
+  padding: 60px 20px;
+}
+
+.about-developer .container {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.developer-img img {
+  width: 280px;
+  height: 280px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.developer-text {
+  max-width: 600px;
+}
+
+/* قسم المشروع */
+.about-project {
+  background: #e9f5ec;
+  padding: 60px 20px;
+}
+
+.about-project .section-title {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #2d6a4f;
+}
+
+.about-project .section-description {
+  text-align: center;
+  margin: 0 auto 40px;
+  max-width: 800px;
+}
+
+.features ul {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.features li {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.vision, .join-us {
+  margin-top: 30px;
+}
+
+/* ✅ التأثيرات */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+.about-developer, .about-project {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+/* 🌍 الريسبونسف لكل الأجهزة */
+@media (max-width: 992px) {
+  .hero-section h2 {
+    font-size: 2.2rem;
+  }
+  .hero-section p {
+    font-size: 1rem;
+  }
+  .developer-text {
+    text-align: center;
+  }
+  .developer-img img {
+    width: 230px;
+    height: 230px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-developer .container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-section {
+    padding: 100px 15px;
+  }
+  .hero-section h2 {
+    font-size: 2rem;
+  }
+  .hero-section p {
+    font-size: 1rem;
+  }
+  .about-project .section-description {
+    font-size: 1rem;
+  }
+  .features li {
+    font-size: 1rem;
+    padding-right:22px ;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-section h2 {
+    font-size: 1.7rem;
+  }
+  .scroll-btn {
+    font-size: 0.9rem;
+    padding: 10px 20px;
+  }
+  .developer-img img {
+    width: 180px;
+    height: 180px;
+  }
+}
